@@ -5,16 +5,39 @@
   </h1>
   <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<h1>Button</h1>
+<button kendoButton [icon]="'lock'">Button</button>
+<button kendoButton [primary]='true'>Primary</button>
+<button kendoButton [primary]='true' [disabled]="true">Primary Disabled</button>
+<!-- <button kendoButton [togglable]="true">Toggle Me</button> -->
 
+<h1>Button Group</h1>
+<kendo-buttongroup>
+  <button kendoButton [togglable]="true">Button 1</button>
+  <button kendoButton>Button 2</button>
+  <button kendoButton>Button 3</button>
+</kendo-buttongroup>
+
+<h1>Dropdown Button</h1>
+<kendo-dropdownbutton [data]="dropDown" (itemClick)="itemWasClicked($event)">
+Dropdown Button
+</kendo-dropdownbutton>
+
+<h1>Split Button</h1>
+<kendo-splitbutton [data]="dropDown" (buttonClick)="buttonWasClicked()" (itemClick)="itemWasClicked($event)">
+Split Button
+</kendo-splitbutton>
+
+<kendo-chart [categoryAxis]="{categories:years}" (seriesClick)="chartItemClicked($event)">
+  <kendo-chart-title text="Students Results"></kendo-chart-title>
+  <kendo-chart-legend position="bottom" orientation="horizontal"></kendo-chart-legend>
+  <kendo-chart-tooltip></kendo-chart-tooltip>
+  <kendo-chart-series>
+    <kendo-chart-series-item *ngFor="let student of students" type="bar" [data]="student.results" [name]="student.name">
+
+    </kendo-chart-series-item>
+  </kendo-chart-series>
+</kendo-chart>
+
+<kendo-calendar [focusedDate]="fdate" [min]="minDate" [max]="maxDate" (valueChange)="logValue($event)" (blur)="onBlur()" (focus)="onFocus()"></kendo-calendar>
+<kendo-calendar [value]="fdate"></kendo-calendar>
